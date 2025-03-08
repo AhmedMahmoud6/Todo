@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+
+    <title>Todo app</title>
+  </head>
+  <body>
+    <div class="background-img">
+      <img src="images/bg-desktop-light.jpg" />
+    </div>
+
+    <div class="parent">
+      <div class="cont">
+        <h1>Todo</h1>
+        <span class="dark-light-mode light"></span>
+      </div>
+
+      <div class="input-field">
+        <div class="circle-parent">
+          <span></span>
+        </div>
+        <input type="text" placeholder="Create a new todo..." />
+      </div>
+
+      <button id="btn">Add Task</button>
+
+      <div class="tasks-container"></div>
+
+      <div class="filter-container">
+        <p>Total Items</p>
+
+        <h4 class="all focus">All</h4>
+        <h4 class="active">Active</h4>
+        <h4 class="complete">Completed</h4>
+      </div>
+    </div>
+
+    <script src="js/functions.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

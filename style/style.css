@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bebas+Neue&family=Bungee+Tint&family=Cairo:wght@200..1000&family=Figtree:ital,wght@0,300..900;1,300..900&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Itim&family=Jomhuria&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Marko+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Young+Serif&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --body-color: #fafafa;
+  --tasks-color: #f1f1f1;
+  --text-color: hsl(0, 0%, 0%);
+}
+
+body {
+  background-color: var(--body-color);
+  display: flex;
+  justify-content: center;
+  font-family: "Arimo", sans-serif;
+}
+
+.background-img {
+  width: 100vw;
+  height: 35vh;
+  position: absolute;
+  z-index: -1;
+}
+
+.background-img img {
+  width: 100%;
+  height: 100%;
+}
+
+h1 {
+  color: white;
+  letter-spacing: 20px;
+  text-transform: uppercase;
+  font-size: 35px;
+}
+
+.parent {
+  margin: 100px auto;
+  width: 600px;
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.parent .input-field {
+  border-radius: 5px;
+  margin: 25px 0;
+}
+
+.parent .input-field,
+.task-parent {
+  display: flex;
+  align-items: center;
+  background-color: var(--tasks-color);
+}
+
+.task-parent[status="completed"] p {
+  text-decoration: line-through;
+  opacity: 0.3;
+}
+
+.task-parent[status="completed"] .circle {
+  background-image: url(../images/icon-check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px;
+  background-color: #74b8fc;
+  outline: none;
+}
+
+.task-parent {
+  border-bottom: 1px solid hsl(237, 14%, 26%);
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task p {
+  max-width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.task .options {
+  position: relative;
+  width: 60px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.options .delete,
+.options .edit {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.options .delete {
+  background-image: url(../images/delete.svg);
+  background-repeat: no-repeat;
+}
+
+.options .edit {
+  background-image: url(../images/edit.svg);
+  background-repeat: no-repeat;
+}
+
+.parent .input-field input,
+.task,
+.edit-input {
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+::placeholder {
+  color: hsl(234, 11%, 52%);
+}
+
+.parent .circle-parent {
+  width: 60px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.circle-parent span {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  outline: 1px solid hsl(233, 14%, 35%);
+  display: block;
+}
+
+#btn {
+  margin: 20px auto;
+  width: 30%;
+  height: 45px;
+  background-color: #6e3ae6;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: hsl(228, 7%, 86%);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.filter-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--tasks-color);
+  height: 65px;
+  color: hsl(234, 11%, 52%);
+}
+
+.filter-container h4 {
+  cursor: pointer;
+}
+
+.filter-container h4:hover:not([class*="focus"]) {
+  color: rgb(102, 147, 205);
+}
+
+.filter-container .focus {
+  color: hsl(220, 98%, 61%);
+}
+
+.tasks-container {
+  overflow: auto;
+  max-height: 490px;
+}
+
+.cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cont .dark-light-mode {
+  cursor: pointer;
+  background-image: url("../images/icon-moon.svg");
+  width: 26px;
+  height: 26px;
+  display: block;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #161722;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #676767;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #818282;
+}
